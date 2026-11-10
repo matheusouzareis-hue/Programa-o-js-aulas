@@ -8,20 +8,86 @@ body {
 }
 
 h1 {
-  color: #2e7d5b;
+  color: #df650e;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: end;
+  margin-bottom: 12px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+}
+
+input {
+  padding: 8px;
+  border: 2px solid #c5d6cc;
+  border-radius: 6px;
+  font-size: 15px;
 }
 
 button {
   padding: 10px 16px;
   border: none;
   border-radius: 6px;
-  background: #2e7d5b;
+  background: #ec5d04;
   color: white;
-  font-size: 16px;
+  font-size: 15px;
   cursor: pointer;
 }
 
-/* o botão muda de cor quando o mouse passa por cima */
 button:hover {
-  background: #1f6b47;
+  background: #f73500;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #d5e2da;
+}
+
+th {
+  background: #e63301;
+  color: white;
+}
+
+.aprovado {
+  background: #e3f4ea;
+  color: #db2809;
+}
+
+.reprovado {
+  background: #fbe4ea;
+  color: #a51d44;
+}
+
+.vazio {
+  padding: 16px;
+  border: 2px dashed #8a9a92;
+  border-radius: 10px;
+  text-align: center;
+  color: #5c6b63;
+}
+
+.aviso {
+  min-height: 1.2em;
+  color: #2e7d5b;
+  font-weight: bold;
 }
