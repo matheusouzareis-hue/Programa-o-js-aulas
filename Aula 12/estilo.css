@@ -105,3 +105,13 @@ th {
 .busca {
   margin-bottom: 12px;
 }
+
+/* o cursor avisa que a linha pode ser clicada */
+tbody tr {
+  cursor: pointer;
+}
+
+.dica {
+  font-size: 14px;
+  color: #5c6b63;
+}
