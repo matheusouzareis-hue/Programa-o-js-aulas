@@ -48,35 +48,21 @@ function mostrarTurma(lista) {
 form.addEventListener("submit", function (event) {
   event.preventDefault();
 
-  // trim() tira os espaços do começo e do fim
   const nome = form.nome.value.trim();
-  // todo campo devolve TEXTO: Number() transforma em número
   const nota = Number(form.nota.value);
 
-  // começa sem erro nenhum
   form.nome.classList.remove("campo-erro");
   form.nota.classList.remove("campo-erro");
   aviso.classList.remove("erro");
 
-  // validação 1: o nome não pode ficar vazio
   if (nome === "") {
     form.nome.classList.add("campo-erro");
     aviso.classList.add("erro");
     aviso.textContent = "Escreva o nome do aluno.";
-    form.nome.focus(); // o cursor volta para o campo
-    return;            // para aqui: não cadastra
-  }
-
-  // validação 2: o nome precisa ter pelo menos 3 letras
-  if (nome.length < 3) {
-    form.nome.classList.add("campo-erro");
-    aviso.classList.add("erro");
-    aviso.textContent = "O nome precisa ter pelo menos 3 letras.";
     form.nome.focus();
     return;
   }
 
-  // validação 2: a nota tem que estar entre 0 e 10
   if (form.nota.value === "" || nota < 0 || nota > 10) {
     form.nota.classList.add("campo-erro");
     aviso.classList.add("erro");
@@ -85,7 +71,16 @@ form.addEventListener("submit", function (event) {
     return;
   }
 
-  aviso.textContent = "Tudo certo: " + nome + ", nota " + nota;
+  // 1. monta o objeto do aluno e coloca no fim da lista
+  turma.push({ nome: nome, media: nota });
+
+  // 2. desenha a tabela de novo, agora com o aluno novo
+  mostrarTurma(turma);
+
+  // 3. avisa, limpa o formulário e volta o cursor para o nome
+  aviso.textContent = nome + " cadastrado(a)!";
+  form.reset();
+  form.nome.focus();
 });
 
 mostrarTurma(turma);
